@@ -1,0 +1,42 @@
+#green {
+    width: 90px;
+    height: 90px;
+    background: green;
+    -moz-border-radius: 90px 0 0 0;
+    -webkit-border-radius: 90px 0 0 0;
+    border-radius: 90px 0 0 0;
+}
+
+#red {
+    width: 90px;
+    height: 90px;
+    background: red;
+    -moz-border-radius: 0 90px 0 0;
+    -webkit-border-radius: 0 90px 0 0;
+    border-radius: 0 90px 0 0;
+}
+
+#blue {
+    width: 90px;
+    height: 90px;
+    background: blue;
+    -moz-border-radius: 0 0 90px 0;
+    -webkit-border-radius: 0 0 90px 0;
+    border-radius: 0 0 90px 0;
+}
+
+#yellow {
+    width: 90px;
+    height: 90px;
+    background: yellow;
+    -moz-border-radius: 0 0 0 90px;
+    -webkit-border-radius: 0 0 0 90px;
+    border-radius: 0 0 0 90px;
+}
+
+.grid {
+    width: 40%;
+    padding-bottom: 40%; /* = width for a square aspect ratio */
+    float:left;
+    position: relative;
+}
