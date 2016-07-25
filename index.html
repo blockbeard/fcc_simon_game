@@ -97,20 +97,22 @@
     -->
 
     <!-- Lots of buttons-->
-    <!--
+
     <div class="page-header">
-      <h1>Buttons</h1>
+      <h1>Simon</h1>
     </div>
     <p>
-      <button type="button" class="btn btn-lg btn-default">Default</button>
-      <button type="button" class="btn btn-lg btn-primary">Primary</button>
-      <button type="button" class="btn btn-lg btn-success">Success</button>
-      <button type="button" class="btn btn-lg btn-info">Info</button>
-      <button type="button" class="btn btn-lg btn-warning">Warning</button>
-      <button type="button" class="btn btn-lg btn-danger">Danger</button>
-      <button type="button" class="btn btn-lg btn-link">Link</button>
-    </p>
-    <p>
+      <button type="button" class="btn btn-lg btn-primary"></button>
+      <button type="button" class="btn btn-lg btn-success"></button>
+      <button type="button" class="btn btn-lg btn-warning"></button>
+      <button type="button" class="btn btn-lg btn-danger"></button>
+      </p>
+
+    <button id="start-button" type="button" class="btn btn-lg btn-default" onclick="start()">Start</button>
+    <button id="strict-button" type="button" class="btn btn-lg btn-default" onclick="toggleStrict()">Strict</button>
+    <div class="count-text">Count: </div><div class="count-number"></div>
+
+    <!--<p>
       <button type="button" class="btn btn-default">Default</button>
       <button type="button" class="btn btn-primary">Primary</button>
       <button type="button" class="btn btn-success">Success</button>
