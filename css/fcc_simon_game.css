@@ -31,3 +31,19 @@
 #blue {
     background-color: blue;
 }
+
+.greenFlash {
+    background-color: lightgreen;
+}
+
+.redFlash {
+    background-color: lightcoral;
+}
+
+.yellowFlash {
+    background-color: lightyellow;
+}
+
+.blueFlash {
+    background-color: lightblue;
+}
