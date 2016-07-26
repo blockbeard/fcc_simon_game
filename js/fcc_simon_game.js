@@ -4,7 +4,8 @@ var sequence = [],
     redButton = document.getElementById("red"),
     greenButton = document.getElementById("green"),
     yellowButton = document.getElementById("yellow"),
-    count = 5;
+    countDisplay = document.getElementById("count-number"),
+    count = 1;
 
 // start the game
 // populate sequence
@@ -13,6 +14,7 @@ var colors = ["blue", "green", "yellow", "red"];
     for (var i = 0; i < 20; i++){
        sequence.push(colors[Math.floor((Math.random() * 4))]);
     }
+    countDisplay.innerText = count;
     flashSequence();
 }
 
@@ -40,7 +42,7 @@ var delay;
         delay = 220;
     }
     console.log(delay);
-            for (var i = 0; i <= count; i++) {
+            for (var i = 0; i < count; i++) {
                 setDelay(i)
             }
 function setDelay(i){
@@ -87,7 +89,7 @@ function setDelay(i){
                 redButton.style.backgroundColor = "";
                 yellowButton.style.backgroundColor = "";
                 greenButton.style.backgroundColor = "";
-            }, delay);
+            }, delay*(i+1));
 }
 
 // take the player input
