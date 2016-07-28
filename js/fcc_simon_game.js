@@ -5,7 +5,8 @@ var sequence = [],
     greenButton = document.getElementById("green"),
     yellowButton = document.getElementById("yellow"),
     countDisplay = document.getElementById("count-number"),
-    count = 5;
+    count = 5,
+    playerInput = [];
 
 // start the game
 // populate sequence
@@ -90,11 +91,39 @@ function setDelay(i){
             }, delay*(i+1));
     recordSequence();
 }
+function userInput(color) {
+    switch (color) {
+        case "blue":
+            console.log("blue triggered");
+            blueButton.style.backgroundColor = "lightblue";
+            new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3').play();
 
+            compareSequence();
+            break;
+        case "red":
+            console.log("red triggered");
+            redButton.style.backgroundColor = "lightcoral";
+            new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3').play();
+            break;
+        case "yellow":
+            console.log("yellow triggered");
+            yellowButton.style.backgroundColor = "lightyellow";
+            new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3').play();
+            break;
+        case "green":
+            console.log("green triggered");
+            greenButton.style.backgroundColor = "lightgreen";
+            new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3').play();
+            break;
+        default:
+            console.log("Input Error");
+
+    }
+}
 // take the player input
 function recordSequence(){
     var playerInput = [];
-    blueButton.onclick = playerInput.push("blue");
+
 
     compareSequence(playerInput);
 }
