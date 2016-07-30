@@ -5,13 +5,13 @@ var sequence = [],
     greenButton = document.getElementById("green"),
     yellowButton = document.getElementById("yellow"),
     countDisplay = document.getElementById("count-number"),
-    count = 5,
-    playerInput = [];
+    count = 1,
+    playerCount = 0;
 
 // start the game
-// populate sequence
 function start(){
 var colors = ["blue", "green", "yellow", "red"];
+    // populate sequence
     for (var i = 0; i < 20; i++){
        sequence.push(colors[Math.floor((Math.random() * 4))]);
     }
@@ -19,7 +19,7 @@ var colors = ["blue", "green", "yellow", "red"];
     console.log(sequence);
     flashSequence();
 }
-
+// toggle strict mode
 function toggleStrict(){
     strict = !strict;
     if (strict){
@@ -28,6 +28,13 @@ function toggleStrict(){
     else if (!strict){
         document.getElementById("strict-button").className = "btn btn-lg btn-default"
     }
+}
+
+// add 1 to count and flashSequence()
+function incrementSequence() {
+    count++;
+    playerCount = 0;
+    flashSequence();
 }
 
 // display the sequence and play sounds
@@ -57,22 +64,22 @@ function setDelay(i){
 
                     switch (sequence[i]) {
                         case "blue":
-                            console.log("blue triggered");
+                            console.log("blue flashed");
                             blueButton.style.backgroundColor = "lightblue";
                             new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3').play();
                             break;
                         case "red":
-                            console.log("red triggered");
+                            console.log("red flashed");
                             redButton.style.backgroundColor = "lightcoral";
                             new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3').play();
                             break;
                         case "yellow":
-                            console.log("yellow triggered");
+                            console.log("yellow flashed");
                             yellowButton.style.backgroundColor = "lightyellow";
                             new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3').play();
                             break;
                         case "green":
-                            console.log("green triggered");
+                            console.log("green flashed");
                             greenButton.style.backgroundColor = "lightgreen";
                             new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3').play();
                             break;
@@ -89,54 +96,63 @@ function setDelay(i){
                 yellowButton.style.backgroundColor = "";
                 greenButton.style.backgroundColor = "";
             }, delay*(i+1));
-    recordSequence();
+    console.log("count = " + count);
 }
+
+// increment playerCount, take user input pass it to compareSequence()
 function userInput(color) {
+    playerCount++;
     switch (color) {
         case "blue":
-            console.log("blue triggered");
+            console.log("blue pressed");
             blueButton.style.backgroundColor = "lightblue";
             new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3').play();
-
-            compareSequence();
+            compareSequence(color);
             break;
         case "red":
-            console.log("red triggered");
+            console.log("red pressed");
             redButton.style.backgroundColor = "lightcoral";
             new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3').play();
+            compareSequence(color);
             break;
         case "yellow":
-            console.log("yellow triggered");
+            console.log("yellow pressed");
             yellowButton.style.backgroundColor = "lightyellow";
             new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3').play();
+            compareSequence(color);
             break;
         case "green":
-            console.log("green triggered");
+            console.log("green pressed");
             greenButton.style.backgroundColor = "lightgreen";
             new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3').play();
+            compareSequence(color);
             break;
         default:
             console.log("Input Error");
 
     }
 }
-// take the player input
-function recordSequence(){
-    var playerInput = [];
 
+// compare the current playerInput to sequence[playerCount]
+function compareSequence(playerInput){
+    console.log("compareSequence() fired: count = " + count + " player count = " + playerCount);
+    console.log("playerInput = " + playerInput + "sequence[playerCount] = " + sequence[playerCount]);
+    if (playerInput === sequence[playerCount] && playerCount === count) {
+        console.log("sequence correct");
+        incrementSequence();
+    }else if (playerInput === sequence[playerCount]){
+        console.log("button correct");
 
-    compareSequence(playerInput);
+    }else if (strict === true){
+        resetGame();
+    }else{
+        console.log("caught by else in compareSequence()");
+        flashSequence();
+    }
 }
 
-function compareSequence(playerInput){
-    var correct = true;
-    for (var i = 0; i < playerInput.length; i++){
-        if (playerInput[i] === sequence[i]){
-        }else{
-            correct = false;
-        }
-    }
-    return correct;
+function resetGame(){
+    location.reload();
 }
 /* Sound files
  https://s3.amazonaws.com/freecodecamp/simonSound1.mp3, https://s3.amazonaws.com/freecodecamp/simonSound2.mp3, https://s3.amazonaws.com/freecodecamp/simonSound3.mp3, https://s3.amazonaws.com/freecodecamp/simonSound4.mp3
