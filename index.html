@@ -87,16 +87,19 @@
 </div>
 <!-- /project Modal -->
 <div class="container theme-showcase" role="main">
+    <div align="center">
     <div id="circle">
         <div id="green" class="quarter" onclick="userInput('green')"></div>
         <div id="red" class="quarter" onclick="userInput('red')"></div>
         <div id="yellow" class="quarter" onclick="userInput('yellow')"></div>
         <div id="blue" class="quarter" onclick="userInput('blue')"></div>
     </div>
-
-    <button id="start-button" type="button" class="btn btn-lg btn-default" onclick="start()">Start</button>
-    <button id="strict-button" type="button" class="btn btn-lg btn-default" onclick="toggleStrict()">Strict</button>
-    <div id="count-text">Count: </div><div id="count-number"></div>
+    <br>
+    <div class="eighties" id="count-text">Count: <span id="count-number"></span></div>
+    <br>
+    <button id="start-button" type="button" class="btn btn-lg btn-default eighties" onclick="start()">Start</button>
+    <button id="strict-button" type="button" class="btn btn-lg btn-default eighties" onclick="toggleStrict()">Strict</button>
+    </div>
 
 
 </div> <!-- /container -->

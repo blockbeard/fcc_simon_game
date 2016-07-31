@@ -47,3 +47,10 @@
 .blueFlash {
     background-color: lightblue;
 }
+
+@font-face {
+    font-family: bitwise; src: url('../fonts/bitwise/bitwise.ttf');
+}
+.eighties {
+    font-family: bitwise, "Courier New", courier, monospace;
+}

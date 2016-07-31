@@ -23,10 +23,10 @@ var colors = ["blue", "green", "yellow", "red"];
 function toggleStrict(){
     strict = !strict;
     if (strict){
-        document.getElementById("strict-button").className = "btn btn-lg btn-warning"
+        document.getElementById("strict-button").className = "btn btn-lg btn-warning eighties"
     }
     else if (!strict){
-        document.getElementById("strict-button").className = "btn btn-lg btn-default"
+        document.getElementById("strict-button").className = "btn btn-lg btn-default eighties"
     }
 }
 
